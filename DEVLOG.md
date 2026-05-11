@@ -20,7 +20,7 @@ This assignment focuses on the torchbearer, which is a robot that must begin at 
 The important focus is first locating the shortest path to each room, as well as connections between them, and then once all paths are discovered, connect the shortest order of room traversals from start to finish
 to ensure that the route is really the "shortest path"
 
-I think the first thing that needs to be implemented is run_dijkstra, since this is what everything else relies on for the correct shortest-path distances
+I think the first thing that needs to be implemented is run_dijkstra, since this is what everything else relies on for the correct shortest-path distances. Looking at the program, _explore looks to be the most difficult part due to the pruning aspect, as getting that, backtracking, and the base case all correct at the same time will be tough. For testing, the four provided test cases would be a good start, then I will try some small graphs that I make so that I can verify the answers myself.
 
 ---
 
@@ -54,8 +54,8 @@ _Your entry here._
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | |
-| Part 2: Precomputation Design | |
+| Part 1: Problem Analysis | ~1 hour|
+| Part 2: Precomputation Design | ~1.5 hours|
 | Part 3: Algorithm Correctness | |
 | Part 4: Search Design | |
 | Part 5: State and Search Space | |

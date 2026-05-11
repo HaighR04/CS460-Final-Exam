@@ -18,10 +18,10 @@
 
 - **Why a single shortest-path run from S is not enough:**
   A single run from S will find the shortest path to each location, but is not able to identify the order that each relic should be visited in. 
-  This needs the algorithm to compare a number of complete routes through each chamber.
+  This requires the algorithm to compare a number of complete routes through each chamber.
 
 - **What decision remains after all inter-location costs are known:**
-  The order of relic chambers to visit remains, as that will determine the final cost of the path
+  After all inter-location costs are known, the order of relic chambers to visit is the last decision to make, as that will determine the final cost of the path through the dungeon.
 
 - **Why this requires a search over orders (one sentence):**
   Since there is not a calculation that immediately determines the optimal visit sequence, the planner has to evaluate different orderings of the chambers to find the best (lowest-cost) traversal.

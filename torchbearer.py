@@ -75,7 +75,30 @@ def run_dijkstra(graph, source):
 
     TODO
     """
-    pass
+    dist = {}
+    for node in graph:
+        dist[node] = float('inf')
+        for neighbor, _ in graph[node]:
+            if neighbor not in dist:
+                dist[neighbor] = float('inf') # Makes sure that all nodes, even ones that only appear as neighbors, as in dist and assigned INF
+    dist[source] = 0
+    
+    heap = [(0, source)]
+    visited = set()
+    while heap:
+        cost, node = heapq.heappop(heap)
+        if node in visited:
+            continue # Skip since this node has already been visited and finalized
+        visited.add(node)
+        
+        for neighbor, edge_cost in graph[node]: # Iterate through neighbors of the current node to find shorter path
+            new_cost = cost + edge_cost
+            if new_cost < dist[neighbor]:
+                dist[neighbor] = new_cost
+                heapq.heappush(heap, (new_cost, neighbor)) # Add the neighbor to the heap with the updated cost for another exploration
+            
+    
+    return dist
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
