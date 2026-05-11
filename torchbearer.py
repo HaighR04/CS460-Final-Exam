@@ -138,9 +138,23 @@ def dijkstra_invariant_check():
         Your Part 3 README answers, written as a string.
         Must match what you wrote in README Part 3.
 
-    TODO
+    
     """
-    return "TODO"
+    return """
+    Part 3a:
+    - Finalized Nodes: dist[v] is the permanent and true shortest path distance from the source to v.
+    - Unfinalized Nodes: dist[u] is the current shortest path from the source to u using only finalized nodes.
+    
+    Part 3b:
+    - Initialization: The distance to source is 0, and is correct, and all other distances are infinity, since no path has been found yet.
+    - Maintenance: The minimum unfinalized node is safe to finalize since nonnegative edge weights will ensure that there are no shorter
+    paths that exist through the unfinalized nodes that remain.
+    - Termination: Each node that is reachable has been finalized, which means that all distances are correct.
+    
+    Part 3c:
+    - Distances that are not correct would lead to the planner potentially choosing a suboptimal or invalid route.
+
+"""
 
 
 # =============================================================================

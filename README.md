@@ -58,7 +58,7 @@
 - **Number of Dijkstra runs:** k + 1, one from S and one from each of the k relics
 - **Cost per run:** O(M logn), where M is the number of relic chambers
 - **Total complexity:** O((k + 1) * M logn)
-- **Justification (one line):** Every run will process each edge one with the heap, and it is ran once per source
+- **Justification (one line):** Every run will process each edge once with a heap, and it is ran once per source
 
 ---
 
@@ -73,29 +73,31 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _Your answer here._
-
+  When a node is added to the finalized set, the recorded distance is permanent, meaning no future path through unfinalized nodes could be cheaper, as all edge weights are nonnegative.
 - **For nodes not yet finalized (not in S):**
-  _Your answer here._
+  The node's current distance is the best that has been located so far, but only looking at paths where the intermediate stops are finalized. A cheaper path is still possible.
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Your answer here._
+  Before iteration, the only nodes is the source with distance 0, and nothing is finalized. This is trivially correct, as the shortest path from the source to itself is 0, and each other node is infinity.
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Your answer here._
+  When the finalized min-dist node u is popped, it becomes finalized. It is safe because all of the edge weights are nonnegative, so any other path to u would be required to pass through another unfinalized node. 
+  This would cost at least as much as the current estimate of u, so no cheaper path to u can exist.
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _Your answer here._
+  When the heap is empty, that means that each node that is reachable has been finalized, and by the invariant, every finalized node has their true shortest distance,
+  meaning that the dictionary that is returned is fully correct.
 
 ### Part 3c: Why This Matters for the Route Planner
 
 > One sentence connecting correct distances to correct routing decisions.
 
-_Your answer here._
+This matters because if Dijkstra produced incorrect distances, the planner would make routing decisions that are based on incorrect fuel costs, and might
+select a route that is suboptimal or even impossible.
 
 ---
 
