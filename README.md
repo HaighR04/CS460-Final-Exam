@@ -36,8 +36,8 @@
 
 | Source Node Type | Why it is a source |
 |---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| Spawn(s) | Starting point for the Torchbearer, needed for costs from S to each relic |
+| Each Relic Chamber | After each relic is visited, the next destination could be another relic, or T |
 
 ### Part 2b: Distance Storage
 
@@ -45,20 +45,20 @@
 
 | Property | Your answer |
 |---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Data structure name | Nested Dictionary |
+| What the keys represent | Each source node (S and each relic) |
+| What the values represent | Mapped destination nodes to their minimum fuel cost |
+| Lookup time complexity | O(1) |
+| Why O(1) lookup is possible | Dictionary uses hashing, giving a constant time for accessing keys |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** k + 1, one from S and one from each of the k relics
+- **Cost per run:** O(M logn), where M is the number of relic chambers
+- **Total complexity:** O((k + 1) * M logn)
+- **Justification (one line):** Every run will process each edge one with the heap, and it is ran once per source
 
 ---
 

@@ -54,10 +54,13 @@ def select_sources(spawn, relics, exit_node):
     list[node]
         No duplicates. Order does not matter.
 
-    TODO
     """
-    pass
-
+    sources = set()
+    sources.add(spawn)
+    # exit_node does not get added as it should not be used as a source for dijkstra's algorithm since it is only the destination 
+    for relic in relics:
+        sources.add(relic)
+    return list(sources)
 
 def run_dijkstra(graph, source):
     """
@@ -73,7 +76,6 @@ def run_dijkstra(graph, source):
         Minimum cost from source to every node in graph.
         Unreachable nodes map to float('inf').
 
-    TODO
     """
     dist = {}
     for node in graph:
@@ -116,9 +118,12 @@ def precompute_distances(graph, spawn, relics, exit_node):
         Nested structure supporting dist_table[u][v] lookups
         for every source u your design requires.
 
-    TODO
     """
-    pass
+    dist_table = {}
+    sources = select_sources(spawn, relics, exit_node)
+    for source in sources:
+        dist_table[source] = run_dijkstra(graph, source)
+    return dist_table
 
 
 # =============================================================================

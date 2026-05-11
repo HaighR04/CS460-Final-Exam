@@ -24,18 +24,18 @@ I think the first thing that needs to be implemented is run_dijkstra, since this
 
 ---
 
-## Entry 2 – [Date]: [Short description]
+## Entry 2 – [5/10/26]: Work through Part 1, 2, and 3, as well as implementing the code for Part 2 and Part 3
 
-> Required. At least one entry must describe a bug, wrong assumption, or design change
-> you encountered. Describe what went wrong and how you resolved it.
-
-_Your entry here._
+I read through all the files and took notes on the order that I should complete everything. I reasoned through run_dijkstra's, and realized an edge case that I might ahv emissed had I not fully read through it.
+This edge case regarded nodes that do not have outgoing nodes, and are mentioned in other noes, ie 'B': [('C', 2)], where B would be considered a key, but C is not included in graph, and therefore might get ignored
+I am going to focus on finishing up readme.md for part 2 and 3, as well as finalizing the code for Part 2 today, and maybe for Part 3.
 
 ---
 
 ## Entry 3 – [Date]: [Short description]
 
-_Your entry here._
+> Required. At least one entry must describe a bug, wrong assumption, or design change
+> you encountered. Describe what went wrong and how you resolved it.
 
 ---
 
@@ -55,7 +55,7 @@ _Your entry here._
 | Part | Estimated Hours |
 |---|---|
 | Part 1: Problem Analysis | ~1 hour|
-| Part 2: Precomputation Design | ~1.5 hours|
+| Part 2: Precomputation Design | ~2 hours|
 | Part 3: Algorithm Correctness | |
 | Part 4: Search Design | |
 | Part 5: State and Search Space | |
