@@ -96,7 +96,7 @@
 
 > One sentence connecting correct distances to correct routing decisions.
 
-This matters because if Dijkstra produced incorrect distances, the planner would make routing decisions that are based on incorrect fuel costs, and might
+This matters because if Dijkstra produced incorrect distances, the planner would make routing decisions that are based on wrong fuel costs, and it might
 select a route that is suboptimal or even impossible.
 
 ---
@@ -108,17 +108,17 @@ select a route that is suboptimal or even impossible.
 > State the failure mode. Then give a concrete counter-example using specific node names
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+- **The failure mode:** Greedy will always pick the closest unvisited relic chamber next, but a cheaper first choice could force future choices to be more expensive, which would make the total cost worse overall than a route that started with a more expensive step.
+- **Counter-example setup:** Using the distance table from the spec, but with S -> B = 3 and S -> D = 4
+- **What greedy picks:** In this scenario, greedy would choose S -> C (cost of 2) as C is the closest, then B (cost 1), then D (cost 1), and then T (cost 100) for a total of 104.
+- **What optimal picks:** Optimal would first choose B (cost 3), then D (cost 1), then C (cost 1), then finally T (cost 1) for a total of 6
+- **Why greedy loses:** Greedy committed to C first because it was the cheapest from S, but it did not know that the path foresc D to be last, costing 100 to reach T.
 
 ### What the Algorithm Must Explore
 
 > One bullet. Must use the word "order."
 
-- _Your answer here._
+- The algorithm must explore each possible order where the relic chambers can be visited, comparing the total fuel costs of all valid orderings to find the global minimum.
 
 ---
 

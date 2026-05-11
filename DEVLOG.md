@@ -26,12 +26,12 @@ I think the first thing that needs to be implemented is run_dijkstra, since this
 
 ## Entry 2 – [5/10/26]: Work through Part 1, 2, and 3, as well as implementing the code for Part 2 and Part 3
 
-I read through all the files and took notes on the order that I should complete everything. I reasoned through run_dijkstra's, and realized an edge case that I might ahv emissed had I not fully read through it.
+I read through all the files and took notes on the order that I should complete everything. I reasoned through run_dijkstra's, and realized an edge case that I might have missed had I not fully read through it.
 This edge case regarded nodes that do not have outgoing nodes, and are mentioned in other noes, ie 'B': [('C', 2)], where B would be considered a key, but C is not included in graph, and therefore might get ignored
 I completed my goal of finishing Parts 1, 2, and 3 for both torchbearer and README, and will re-read over README and ASSIGNMENT today, and continue with Part 4 and 5 tomorrow.
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – [5/11/26]: [Short description]
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
@@ -56,7 +56,7 @@ _Your entry here._
 | Part 1: Problem Analysis | ~1 hour |
 | Part 2: Precomputation Design | ~2 hours |
 | Part 3: Algorithm Correctness | 30 minutes |
-| Part 4: Search Design | |
+| Part 4: Search Design | ~ 45 minutes |
 | Part 5: State and Search Space | |
 | Part 6: Pruning | |
 | Part 7: Implementation | |
