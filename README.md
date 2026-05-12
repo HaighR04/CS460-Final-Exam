@@ -109,10 +109,10 @@ select a route that is suboptimal or even impossible.
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
 - **The failure mode:** Greedy will always pick the closest unvisited relic chamber next, but a cheaper first choice could force future choices to be more expensive, which would make the total cost worse overall than a route that started with a more expensive step.
-- **Counter-example setup:** Using the distance table from the spec, but with S -> B = 3 and S -> D = 4
-- **What greedy picks:** In this scenario, greedy would choose S -> C (cost of 2) as C is the closest, then B (cost 1), then D (cost 1), and then T (cost 100) for a total of 104.
-- **What optimal picks:** Optimal would first choose B (cost 3), then D (cost 1), then C (cost 1), then finally T (cost 1) for a total of 6
-- **Why greedy loses:** Greedy committed to C first because it was the cheapest from S, but it did not know that the path foresc D to be last, costing 100 to reach T.
+- **Counter-example setup:** Using the distance table from the spec, but with S -> B = 3.
+- **What greedy picks:** In this scenario, greedy would choose S -> C (cost of 2) as C is the closest, then B (cost 1), then D (cost 1), and then T (cost 100) for a total of 2 + 1 + 1 + 100 = 104.
+- **What optimal picks:** Optimal would first choose B (cost 3), then D (cost 1), then C (cost 1), then finally T (cost 1) for a total of 3 + 1 + 1 + 1 = 6
+- **Why greedy loses:** Greedy committed to C first because it was the cheapest from S, but it did not know that the path forces D to be last, costing 100 to reach T.
 
 ### What the Algorithm Must Explore
 

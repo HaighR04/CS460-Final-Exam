@@ -169,9 +169,27 @@ def explain_search():
         Your Part 4 README answers, written as a string.
         Must match what you wrote in README Part 4.
 
-    TODO
+    
     """
-    return "TODO"
+    return """
+    Why Greedy Fails:
+    - Greedy will always pick the closeset unvisited relic chamber next, but a cheaper first choice might 
+    force future choices to be more expensive, which would make the total cost worse overall compared to a route 
+    that started with a more expensive first choice but allowed for cheaper future choices.
+    - Counter-example: Using the distance table from spec, but S -> B = 3 instead of 1.
+    - Greedy picks: Nearest relic chamber without looking ahead. S -> C (2), then C -> B (1), then B -> D (1), 
+    then D -> T (100). Total = 2 + 1 + 1 + 100 = 104.
+    - Optimal picks: the ordering of chambers that would minimize the total cost. S -> B (3), then B -> D (1), 
+    then D -> C (1), then C -> T (1). Total = 3 + 1 + 1 + 1 = 6.
+    - Why Greedy Loses: Greedy committed to C first because it was the cheapest from S, but it did not know 
+    that the path forces D to be last, costing 100 to reach T. This is due to greedy's lack of ability to look \
+    forward and consider possible penalties of early cheap choices.
+    
+    What the Algorithm Must Explore:
+    - The algorithm must explore each possible order where the relic chambers canbe visited, comparing the total
+    fuel costs of all valid orderings to find the global minimum.
+    
+"""
 
 
 # =============================================================================
