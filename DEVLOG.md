@@ -31,11 +31,12 @@ This edge case regarded nodes that do not have outgoing nodes, and are mentioned
 I completed my goal of finishing Parts 1, 2, and 3 for both torchbearer and README, and will re-read over README and ASSIGNMENT today, and continue with Part 4 and 5 tomorrow.
 ---
 
-## Entry 3 – [5/11/26]: [Short description]
+## Entry 3 – [5/12/26]: Implementation of Part 5 and ensuring that it backtracks through the relics properly with pruning
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
 
+While working through Part 5 and filling out find_optimal_route and _explore, I was taking a little while to figure out how I was going to implement the pruning and backtracking aspect. I was able to figure out the recursive case and base case, but I completely blanked on what the pruning condition would need to be. As I was working through the function, I think I tried to add it somewhere within the recursive case. Once I had written the recursive case fully and was writing out examples on my paper, I realized that it would not work properly in that part of the function, and figured that adding it at the beginning would remove any unnecssary recursion or base case checking if the cost was already suboptimal.
 ---
 
 ## Entry 4 – [Date]: Post-Implementation Reflection
@@ -56,9 +57,9 @@ _Your entry here._
 | Part 1: Problem Analysis | ~1 hour |
 | Part 2: Precomputation Design | ~2 hours |
 | Part 3: Algorithm Correctness | 30 minutes |
-| Part 4: Search Design | ~ 45 minutes |
-| Part 5: State and Search Space | |
-| Part 6: Pruning | |
-| Part 7: Implementation | |
-| README and DEVLOG writing | |
-| **Total** | |
+| Part 4: Search Design | ~ 1 hour |
+| Part 5: State and Search Space | ~2.5 hours |
+| Part 6: Pruning |  |
+| Part 7: Implementation |  |
+| README and DEVLOG writing |  |
+| **Total** |  |

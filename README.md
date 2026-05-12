@@ -131,9 +131,9 @@ select a route that is suboptimal or even impossible.
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Current location | current_loc | node | Has position of Torchbearer at the current moment |
+| Relics already collected | relics_remaining | set | Which relics still need to be visited |
+| Fuel cost so far | cost_so_far | float | Total fuel used to reach the current state |
 
 ### Part 5b: Data Structure for Visited Relics
 
@@ -141,18 +141,18 @@ select a route that is suboptimal or even impossible.
 
 | Property | Your answer |
 |---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Data structure chosen | Set |
+| Operation: check if relic already collected | Time complexity: O(1) |
+| Operation: mark a relic as collected | Time complexity: O(1) |
+| Operation: unmark a relic (backtrack) | Time complexity: O(1) |
+| Why this structure fits | The backtracking step needs to be able to add and remove quickly, and a set gives O(1) for both |
 
 ### Part 5c: Worst-Case Search Space
 
 > Two bullets.
 
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+- **Worst-case number of orders considered:** k!
+- **Why:** At each you choose from the remaining unvisited relics, and with k choices, then k -1, then k-1, this could result in k!
 
 ---
 
