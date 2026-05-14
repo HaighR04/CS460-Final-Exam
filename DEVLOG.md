@@ -39,27 +39,27 @@ I completed my goal of finishing Parts 1, 2, and 3 for both torchbearer and READ
 While working through Part 5 and filling out find_optimal_route and _explore, I was taking a little while to figure out how I was going to implement the pruning and backtracking aspect. I was able to figure out the recursive case and base case, but I completely blanked on what the pruning condition would need to be. As I was working through the function, I think I tried to add it somewhere within the recursive case. Once I had written the recursive case fully and was writing out examples on my paper, I realized that it would not work properly in that part of the function, and figured that adding it at the beginning would remove any unnecssary recursion or base case checking if the cost was already suboptimal.
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 4 – [5/14/26]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
-_Your entry here._
+_Your entry here._ I FORGOT TO DO PART !
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – [5/14/26]: Time Estimate
 
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | ~1 hour |
-| Part 2: Precomputation Design | ~2 hours |
+| Part 1: Problem Analysis | 1 hour |
+| Part 2: Precomputation Design | 1 hour |
 | Part 3: Algorithm Correctness | 30 minutes |
-| Part 4: Search Design | ~ 1 hour |
-| Part 5: State and Search Space | ~2.5 hours |
-| Part 6: Pruning |  |
-| Part 7: Implementation |  |
-| README and DEVLOG writing |  |
+| Part 4: Search Design | 1 hour |
+| Part 5: State and Search Space | 2 hours |
+| Part 6: Pruning | 1.5 hours |
+| Part 7: Implementation | 1 hour |
+| README and DEVLOG writing | |
 | **Total** |  |

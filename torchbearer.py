@@ -32,9 +32,10 @@ def explain_problem():
         Your Part 1 README answers, written as a string.
         Must match what you wrote in README Part 1.
 
-    TODO
+    
     """
-    return "TODO"
+    return """placeholder value until I fill this out with my actual answer from the README. 
+    I just want to make sure that the test for non-empty string is working correctly before I write the full answer here."""
 
 
 # =============================================================================
@@ -195,6 +196,33 @@ def explain_search():
 # =============================================================================
 # PARTS 5 + 6
 # =============================================================================
+# I made this helper function to assist with the improved pruning condition. It isn't required but I 
+def lower_bound(dist_table, current_loc, relics_remaining, exit_node):
+    """
+    Parameters
+    ----------
+    dist_table : dict[node, dict[node, float]]
+        Output of precompute_distances.
+    current_loc : node
+    relics_remaining : collection
+        Set
+    exit_node : node
+
+    Returns
+    -------
+    float
+    """
+    
+    if not relics_remaining:
+        return dist_table[current_loc][exit_node]
+    
+    # The lowest cost step from the current location to any remaining relic
+    min_to_next_relic = min(dist_table[current_loc][r] for r in relics_remaining)
+    # The lowest cost step from any remaining relic to the exit node
+    min_to_exit = min(dist_table[r][exit_node] for r in relics_remaining)
+    
+    return min_to_next_relic + min_to_exit
+
 
 def find_optimal_route(dist_table, spawn, relics, exit_node):
     """
@@ -232,7 +260,7 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     dist_table : dict[node, dict[node, float]]
     current_loc : node
     relics_remaining : collection
-        Your chosen data structure from README Part 5b.
+        Your chosen data structure from README Part 5b. (Set)
     relics_visited_order : list[node]
     cost_so_far : float
     exit_node : node
@@ -251,12 +279,15 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
-    #Pruning Condition
-    if cost_so_far >= best[0]:
-        # Pruning here is safe because since all of the edge weights are nonnegative, cost_so_far can
-        # only increase from this point. If it currently meets or is greater than the current best known cost
-        # then it cannot lead to a better solution, so we can safely stop exploring this route.
-        return
+    # Pruning Condition
+    
+    # Pruning here is safe because the lower bound would never overestimate the remaining cost, as it 
+    # assumes the cheapest next relic and cheapest exit independently. Since all of the edge weights 
+    # are nonnegative, then true remaining cost >= lower_bound, so cost_so_far + lower_bound >= best[0], 
+    # there is no possible complete route through the current branch that would beat best[0].
+    lower_bound_cost = lower_bound(dist_table, current_loc, relics_remaining, exit_node)
+    if cost_so_far + lower_bound_cost >= best[0]:
+        return # Prune this branch since it won't lead to a better solution than the current best
     
     # Base Case
     if not relics_remaining:
@@ -300,9 +331,10 @@ def solve(graph, spawn, relics, exit_node):
         (minimum_fuel_cost, ordered_relic_list)
         Returns (float('inf'), []) if no valid route exists.
 
-    TODO
+    
     """
-    pass
+    dist_table = precompute_distances(graph, spawn, relics, exit_node)
+    return find_optimal_route(dist_table, spawn, relics, exit_node)
 
 
 # =============================================================================

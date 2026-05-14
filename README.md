@@ -178,7 +178,8 @@ select a route that is suboptimal or even impossible.
 
 > One to two bullets. Explain why pruning is safe.
 
-- _Your answer here._
+- Pruning is safe because the lower bound will never overestimate the remaining cost, since it assumes that the cheapest next step and cheapest exit by themselves, which ignores the ordering constraints. The true remaining cost would only be able to be equal or higher.
+- This means that if cost_so_far + lower_bound >= best[0], then the true cost of any complete route through this branch must also meet or be higher than best[0], and the optimal solution would not be in this branch.
 
 ---
 
@@ -186,4 +187,4 @@ select a route that is suboptimal or even impossible.
 
 > Bullet list. If none beyond lecture notes, write that.
 
-- _Your references here._
+-  I used the lecture notes and 
