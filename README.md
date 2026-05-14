@@ -162,17 +162,17 @@ select a route that is suboptimal or even impossible.
 
 > Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** The lowest cost route found so far, both the total fuel cost in best[0] and the ordering of relics in best[1]
+- **When it is used:** At the start of each _explore call before work is done, so that it can check if the current branch can even beat it.
+- **What it allows the algorithm to skip:** It skips any branch where the cost_so_far is either equal to or greater than best[0], as nonnegative edge weights mean that the cost will only increase.
 
 ### Part 6b: Lower Bound Estimation
 
 > Three bullets.
 
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** At this state, we have the cost_so_far (fuel that has already been spent), relics_remaining (which relics still need visiting),  and dist_table (cheapest travels costs between all relveant nodes)
+- **What the lower bound accounts for:** It accounts for the cheapest possible way to finish from the current state. This means the minimum cost to reach any of the remaining relcis from the current location plus the miminum cost for any of the remaining relics to T.
+- **Why it never overestimates:** THis takes the single cheapest option for each of the remaining legs independently, which is always optimistic, and the actual path has to connect these in some specific order that could only cost more.
 
 ### Part 6c: Pruning Correctness
 
