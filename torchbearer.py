@@ -34,8 +34,19 @@ def explain_problem():
 
     
     """
-    return """placeholder value until I fill this out with my actual answer from the README. 
-    I just want to make sure that the test for non-empty string is working correctly before I write the full answer here."""
+    return """
+    Why Single Shortest-Path Run From S Isn't Enough: 
+    - A single run from S will find the shortest path to each chamber, but it isn't able to identify 
+    the order that each relic chamber should be visited in.
+    
+    What Decision Remains After Inter-Location Costs Are Known: 
+    - After all inter-location costs are known, the last decision to make is the order of the relic 
+    chambers to visit, since that will determine the final cost of the path through the dungeon.
+
+    Why This Requires A Search Over Orders:
+    - Since there isn't a calculation that immediately determines the optimal visit sequence, the planner
+    has to evaluate different orderings of the chambers to find the best (lowest-cost) traversal.
+"""
 
 
 # =============================================================================
@@ -142,18 +153,24 @@ def dijkstra_invariant_check():
     
     """
     return """
-    Part 3a:
-    - Finalized Nodes: dist[v] is the permanent and true shortest path distance from the source to v.
-    - Unfinalized Nodes: dist[u] is the current shortest path from the source to u using only finalized nodes.
+    What The Invariant Means:
+    - Finalized Nodes: When a node is added to the finalized set, the recorded distance becomes permanent,
+    meaning that no future path through any unfinalized nodes could be cheaper, as all edge weights are nonnegative.
+    - Unfinalized Nodes: The node's current distance is the best that has been located so far, but only looking
+    at paths where the intermediate stops are finalized. A cheaper path might still be possible.
     
-    Part 3b:
-    - Initialization: The distance to source is 0, and is correct, and all other distances are infinity, since no path has been found yet.
-    - Maintenance: The minimum unfinalized node is safe to finalize since nonnegative edge weights will ensure that there are no shorter
-    paths that exist through the unfinalized nodes that remain.
-    - Termination: Each node that is reachable has been finalized, which means that all distances are correct.
+    Why Each Phase Holds:
+    - Initialization: Before iteration, the only nodes is the source with distance 0 and nothing is finalized. This is trivially correct,
+    as the shortest path from the source to itself is 0, and each other node is infinity.
+    - Maintenance: When the finalized min-dist node u is popped, it becomes finalized. Is it safe because all of the edge weights are nonnegative,
+    so any other path to u would be required to pass through another unfinalized node, which would cost at least as much as the current
+    estimate of u, meaning no cheaper path to u can exist,
+    - Termination: When the heap is empty, that means that each node that is reachable has been finalized, and by the invariant,
+    every finalized node has their true shortest distance, which means that the dictionary that gets returned is fully correct.
     
-    Part 3c:
-    - Distances that are not correct would lead to the planner potentially choosing a suboptimal or invalid route.
+    Why This Matters for the Route Planner:
+    - This matters because if Dijkstra produced incorrect distances, the planner would make routing decision based on wrong fuel costs,
+    and might select a route that is suboptimal or even impossible.
 
 """
 

@@ -96,8 +96,7 @@
 
 > One sentence connecting correct distances to correct routing decisions.
 
-This matters because if Dijkstra produced incorrect distances, the planner would make routing decisions that are based on wrong fuel costs, and it might
-select a route that is suboptimal or even impossible.
+This matters because if Dijkstra produced incorrect distances, the planner would make routing decisions that are based on wrong fuel costs, and it might select a route that is suboptimal or even impossible.
 
 ---
 

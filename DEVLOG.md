@@ -44,7 +44,7 @@ While working through Part 5 and filling out find_optimal_route and _explore, I 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
-_Your entry here._ I FORGOT TO DO PART !
+
 
 ---
 
