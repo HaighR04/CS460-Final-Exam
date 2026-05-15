@@ -38,12 +38,19 @@ I completed my goal of finishing Parts 1, 2, and 3 for both torchbearer and READ
 
 While working through Part 5 and filling out find_optimal_route and _explore, I was taking a little while to figure out how I was going to implement the pruning and backtracking aspect. I was able to figure out the recursive case and base case, but I completely blanked on what the pruning condition would need to be. As I was working through the function, I think I tried to add it somewhere within the recursive case. Once I had written the recursive case fully and was writing out examples on my paper, I realized that it would not work properly in that part of the function, and figured that adding it at the beginning would remove any unnecssary recursion or base case checking if the cost was already suboptimal.
 ---
+## Entry 4 - [5/14/26]: Fell asleep working on some of the stuff and realized I implemented them wrong.
 
-## Entry 4 – [5/14/26]: Post-Implementation Reflection
+> Required. At least one entry must describe a bug, wrong assumption, or design change
+> you encountered. Describe what went wrong and how you resolved it.
+
+I was really busy during 5/13 and intended to work on some of the explain portions, but I only did it right before I went to bed and realized today that I not only just wrote wrong information for some of them, but I also forgot to update the pruning condition with the work from Part 6b. Today, I was able to not only fix some of my typing errors, but ensure that the pruning condition was correctly and properly commented. It took me a little while to fully understand the importance between the cost_so_far >= best and lower_bound implementation.
+
+## Entry 5 – [5/14/26]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
+I feel like the time I was given was proper for this assignment, I was just not as efficient as I should have been. Luckily, I listened to the Professor's warning about starting late, which definitely saved me. I did have to go over the lecture slides quite a bit to make sure I was managing each part of the search in the right way, but it was useful for finalizing the project. Given more time, I could have implemented some sort of comparison mechanism between different search algorithms to show the true efficiency of the optimal search using the lower_bound pruning, but that was not necessary, and would have just acted as the cherry on top. Other than that, I should have just focused more during the sessions I was working so I wouldn't have to go back over my work to fix stupid mistakes. The time estimates vary based on my level of attentiveness, such as Part 3 where I was insanely locked in but Part 6 got me stuck.
 
 
 ---
@@ -60,6 +67,6 @@ While working through Part 5 and filling out find_optimal_route and _explore, I 
 | Part 4: Search Design | 1 hour |
 | Part 5: State and Search Space | 2 hours |
 | Part 6: Pruning | 1.5 hours |
-| Part 7: Implementation | 1 hour |
-| README and DEVLOG writing | |
-| **Total** |  |
+| Part 7: Implementation | 2 hour |
+| README and DEVLOG writing | 1.5 hours |
+| **Total** | 10.5 hours |

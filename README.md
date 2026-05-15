@@ -56,8 +56,8 @@
 > State the total complexity and show the arithmetic. Two to three lines max.
 
 - **Number of Dijkstra runs:** k + 1, one from S and one from each of the k relics
-- **Cost per run:** O(M logn), where M is the number of relic chambers
-- **Total complexity:** O((k + 1) * M logn)
+- **Cost per run:** O(m logn), where m is the number of relic chambers
+- **Total complexity:** O((k + 1) * m logn)
 - **Justification (one line):** Every run will process each edge once with a heap, and it is ran once per source
 
 ---
@@ -131,7 +131,7 @@ This matters because if Dijkstra produced incorrect distances, the planner would
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
 | Current location | current_loc | node | Has position of Torchbearer at the current moment |
-| Relics already collected | relics_remaining | set | Which relics still need to be visited |
+| Relics left to collect | relics_remaining | set | Which relics still need to be visited |
 | Fuel cost so far | cost_so_far | float | Total fuel used to reach the current state |
 
 ### Part 5b: Data Structure for Visited Relics
@@ -151,7 +151,7 @@ This matters because if Dijkstra produced incorrect distances, the planner would
 > Two bullets.
 
 - **Worst-case number of orders considered:** k!
-- **Why:** At each you choose from the remaining unvisited relics, and with k choices, then k -1, then k-1, this could result in k!
+- **Why:** At each you choose from the remaining unvisited relics, and with k choices, then k - 1, then k - 2 and so on, this would result in k!
 
 ---
 
@@ -169,9 +169,9 @@ This matters because if Dijkstra produced incorrect distances, the planner would
 
 > Three bullets.
 
-- **What information is available at the current state:** At this state, we have the cost_so_far (fuel that has already been spent), relics_remaining (which relics still need visiting),  and dist_table (cheapest travels costs between all relveant nodes)
-- **What the lower bound accounts for:** It accounts for the cheapest possible way to finish from the current state. This means the minimum cost to reach any of the remaining relcis from the current location plus the miminum cost for any of the remaining relics to T.
-- **Why it never overestimates:** THis takes the single cheapest option for each of the remaining legs independently, which is always optimistic, and the actual path has to connect these in some specific order that could only cost more.
+- **What information is available at the current state:** At this state, we have the cost_so_far (fuel that has already been spent), relics_remaining (which relics still need visiting), and dist_table (cheapest travels costs between all relevant nodes)
+- **What the lower bound accounts for:** It accounts for the cheapest possible way to finish from the current state. This means the minimum cost to reach any of the remaining relics from the current location plus the minimum cost for any of the remaining relics to T.
+- **Why it never overestimates:** This takes the single cheapest option for each of the remaining legs independently, which is always optimistic, and the actual path has to connect these in some specific order that could only cost more.
 
 ### Part 6c: Pruning Correctness
 
@@ -186,4 +186,4 @@ This matters because if Dijkstra produced incorrect distances, the planner would
 
 > Bullet list. If none beyond lecture notes, write that.
 
--  I used the lecture notes and 
+- Lecture Notes from CS460, Spring 2026

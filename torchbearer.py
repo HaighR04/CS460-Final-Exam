@@ -200,7 +200,7 @@ def explain_search():
     - Optimal picks: the ordering of chambers that would minimize the total cost. S -> B (3), then B -> D (1), 
     then D -> C (1), then C -> T (1). Total = 3 + 1 + 1 + 1 = 6.
     - Why Greedy Loses: Greedy committed to C first because it was the cheapest from S, but it did not know 
-    that the path forces D to be last, costing 100 to reach T. This is due to greedy's lack of ability to look \
+    that the path forces D to be last, costing 100 to reach T. This is due to greedy's lack of ability to look 
     forward and consider possible penalties of early cheap choices.
     
     What the Algorithm Must Explore:
@@ -214,6 +214,7 @@ def explain_search():
 # PARTS 5 + 6
 # =============================================================================
 # I made this helper function to assist with the improved pruning condition. It isn't required but I 
+# figured it would help separate the logic and make it easier for me to write out each part.
 def lower_bound(dist_table, current_loc, relics_remaining, exit_node):
     """
     Parameters
